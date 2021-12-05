@@ -9,11 +9,10 @@ class Menu extends Model {
 Menu.init({
     name: DataTypes.STRING,
     type: DataTypes.STRING,
-    
-    isVocalist: DataTypes.BOOLEAN,
+    inLanguage: DataTypes.BOOLEAN,
 }, {
     sequelize, 
-    timestamps: false
+    timestamps: false,
 })
 
 module.exports = {Menu}

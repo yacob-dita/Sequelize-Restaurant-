@@ -1,4 +1,4 @@
-const{Sequelize, DataTypes, Model} = require("./db")
+// const{Sequelize, DataTypes, Model} = require("./db")
 
 
 const {Menu, Restaurant, sequelize} = require('./index')
@@ -19,17 +19,17 @@ describe('Menu Database', () => {
         //create array of Menu
     
         const arrayOfMenus =[
-            {name: 'breakfastMenu', type:'breakfast', isSpanish: true},
-            {name: 'lunchMenu', type:'entrees', isSpanish: true},
-            {name: 'dinnerMenu', type:'drinks', isSpanish: true},
+            {name: 'breakfastMenu', type:'breakfast', inLanguage: true},
+            {name: 'lunchMenu', type:'entrees', inLanguage: true},
+            {name: 'dinnerMenu', type:'drinks', inLanguage: true},
             
         ]
         //add arrays to database
-        await Band.bulkCreate(arrayOfBands)
-        await Musician.bulkCreate(arrayOfMusicians)
+        await Restaurant.bulkCreate(arrayOfRestaurants)
+        await Menu.bulkCreate(arrayOfMenus)
     })
 
-})
+
 
 
 test('menu have name', async() => {
@@ -38,3 +38,29 @@ test('menu have name', async() => {
     const testMenu= await Menu.findOne({where: {name: 'breakfastMenu'}});
     expect(testMenu.name).toBe('breakfastMenu')
 })
+
+test('menu have type', async() => {
+    //read test instance from db
+    //read test Musician instance from db
+    const testMenu= await Menu.findOne({where: {type: 'entrees'}});
+    expect(testMenu.type).toBe('entrees')
+// })
+// test('menu have inLangauage', async() => {
+//     //read test instance from db
+//     //read test Musician instance from db
+//     // const testMenu= await Menu.findOne({where: {inLanguage: 'true'}});
+//     // expect(testMenu.inLanguage).toBe('true')
+
+//     const inLanguage = await inLanguage.getMenuList("Truthy");
+//     expect(testMenu.inLanguage.length).toBe("Truthy")
+    
+})
+
+
+
+
+
+
+ })
+
+ 
